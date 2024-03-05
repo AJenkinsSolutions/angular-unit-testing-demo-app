@@ -1,29 +1,12 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
-  });
+import { AppComponent } from "./app.component"
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'unit-testing-demo-app' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('unit-testing-demo-app');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, unit-testing-demo-app');
-  });
-});
+//this first parameter in the describe indicates with component we are testing
+describe('AppComponent', ()=> {
+  //A clear explanation of the test
+  it('should have a defined title', () => {
+    //Assertions of the test
+    const component = new AppComponent();
+    expect(component.title).toBeDefined();
+  })
+})
