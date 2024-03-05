@@ -3,14 +3,35 @@ import { TestBed } from '@angular/core/testing';
 import { UserService } from './user.service';
 
 describe('UserService', () => {
-  let service: UserService;
+    //Mock the user service
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(UserService);
-  });
+    let service: UserService; 
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    //Runs before each test
+    beforeEach(()=> {
+      //Will create a new int
+      TestBed.configureTestingModule({});
+      service = TestBed.inject(UserService);
+
+    })
+
+    //Should be a new service
+    it('should be created', ()=> {
+
+      expect(service).toBeTruthy();
+
+    })
+
+    //Should get usert array
+    it('should ger users', ()=>{
+      service.getUsers().subscribe(users => {
+        expect(users.length).toBeGreaterThan(0);
+      })
+    })
+
+
+
+
+
+
 });
